@@ -12,22 +12,20 @@
 </body>
 <script>
     const start = () =>{
-      
-   
-    let kelimeler = document.getElementById('text').value;
-    String.prototype.say=function(s1) { 
-        return (this.length - this.replace(new RegExp(s1,"g"), '').length) / s1.length;
+        let kelimeler = document.getElementById('text').value;
+        String.prototype.say=function(s1) { 
+            return (this.length - this.replace(new RegExp(s1,"g"), '').length) / s1.length;
+        }
+
+        let kelimeler1 = document.getElementById('text').value.split(' ');
+        let filterKelimeler = [];
+        kelimeler1.forEach(element => {
+            if(kelimeler.say(element) >= 10 && filterKelimeler.indexOf(element) == -1)
+            {
+                console.log(element)
+                filterKelimeler.push(element);
+            }
+        });
     }
-
-    let kelimeler1 = document.getElementById('text').value.split(' ');
-
-    kelimeler1.forEach(element => {
-       if(kelimeler.say(element) >= 10)
-        console.log(element)
-
-        kelimeler1.shift(element);
-    });
-   
-}
 </script>
 </html>
