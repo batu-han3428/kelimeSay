@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea id="text"></textarea>
+    <button onclick="start()">Gönder</button>
+</body>
+<script>
+    const start = () =>{
+      
+   
+    let kelimeler = document.getElementById('text').value;
+    String.prototype.say=function(s1) { 
+        return (this.length - this.replace(new RegExp(s1,"g"), '').length) / s1.length;
+    }
+
+    let kelimeler1 = document.getElementById('text').value.split(' ');
+
+    kelimeler1.forEach(element => {
+       if(kelimeler.say(element) >= 10)
+        console.log(element)
+
+        kelimeler1.shift(element);
+    });
+   
+}
+</script>
+</html>
